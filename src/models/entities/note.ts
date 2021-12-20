@@ -101,27 +101,23 @@ export class Note {
 	})
 	public uri: string | null;
 
-	@Index()
 	@Column({
 		...id(),
 		array: true, default: '{}'
 	})
 	public fileIds: DriveFile['id'][];
 
-	@Index()
 	@Column('varchar', {
 		length: 256, array: true, default: '{}'
 	})
 	public attachedFileTypes: string[];
 
-	@Index()
 	@Column({
 		...id(),
 		array: true, default: '{}'
 	})
 	public visibleUserIds: User['id'][];
 
-	@Index()
 	@Column({
 		...id(),
 		array: true, default: '{}'
@@ -138,7 +134,6 @@ export class Note {
 	})
 	public emojis: string[];
 
-	@Index()
 	@Column('varchar', {
 		length: 128, array: true, default: '{}'
 	})

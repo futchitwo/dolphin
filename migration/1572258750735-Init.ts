@@ -23,7 +23,6 @@ export class Init1572258750735 implements MigrationInterface {
         await queryRunner.query(`CREATE INDEX "IDX_e11e649824a45d8ed01d597fd9" ON "user" ("createdAt") `, undefined);
         await queryRunner.query(`CREATE INDEX "IDX_80ca6e6ef65fb9ef34ea8c90f4" ON "user" ("updatedAt") `, undefined);
         await queryRunner.query(`CREATE INDEX "IDX_a27b942a0d6dcff90e3ee9b5e8" ON "user" ("usernameLower") `, undefined);
-        await queryRunner.query(`CREATE INDEX "IDX_fa99d777623947a5b05f394cae" ON "user" ("tags") `, undefined);
         await queryRunner.query(`CREATE INDEX "IDX_3252a5df8d5bbd16b281f7799e" ON "user" ("host") `, undefined);
         await queryRunner.query(`CREATE INDEX "IDX_be623adaa4c566baf5d29ce0c8" ON "user" ("uri") `, undefined);
         await queryRunner.query(`CREATE UNIQUE INDEX "IDX_a854e557b1b14814750c7c7b0c" ON "user" ("token") `, undefined);
@@ -35,11 +34,6 @@ export class Init1572258750735 implements MigrationInterface {
         await queryRunner.query(`CREATE INDEX "IDX_52ccc804d7c69037d558bac4c9" ON "note" ("renoteId") `, undefined);
         await queryRunner.query(`CREATE INDEX "IDX_5b87d9d19127bd5d92026017a7" ON "note" ("userId") `, undefined);
         await queryRunner.query(`CREATE UNIQUE INDEX "IDX_153536c67d05e9adb24e99fc2b" ON "note" ("uri") `, undefined);
-        await queryRunner.query(`CREATE INDEX "IDX_51c063b6a133a9cb87145450f5" ON "note" ("fileIds") `, undefined);
-        await queryRunner.query(`CREATE INDEX "IDX_25dfc71b0369b003a4cd434d0b" ON "note" ("attachedFileTypes") `, undefined);
-        await queryRunner.query(`CREATE INDEX "IDX_796a8c03959361f97dc2be1d5c" ON "note" ("visibleUserIds") `, undefined);
-        await queryRunner.query(`CREATE INDEX "IDX_54ebcb6d27222913b908d56fd8" ON "note" ("mentions") `, undefined);
-        await queryRunner.query(`CREATE INDEX "IDX_88937d94d7443d9a99a76fa5c0" ON "note" ("tags") `, undefined);
         await queryRunner.query(`CREATE INDEX "IDX_7125a826ab192eb27e11d358a5" ON "note" ("userHost") `, undefined);
         await queryRunner.query(`CREATE TABLE "poll_vote" ("id" character varying(32) NOT NULL, "createdAt" TIMESTAMP WITH TIME ZONE NOT NULL, "userId" character varying(32) NOT NULL, "noteId" character varying(32) NOT NULL, "choice" integer NOT NULL, CONSTRAINT "PK_fd002d371201c472490ba89c6a0" PRIMARY KEY ("id"))`, undefined);
         await queryRunner.query(`CREATE INDEX "IDX_0fb627e1c2f753262a74f0562d" ON "poll_vote" ("createdAt") `, undefined);

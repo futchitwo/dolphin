@@ -89,7 +89,6 @@ export class User {
 	@JoinColumn()
 	public banner: DriveFile | null;
 
-	@Index()
 	@Column('varchar', {
 		length: 128, array: true, default: '{}'
 	})
