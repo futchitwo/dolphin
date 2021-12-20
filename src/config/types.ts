@@ -20,7 +20,7 @@ export type Source = {
 		disableCache?: boolean;
 		extra?: { [x: string]: string };
 	};
-	redis: {
+	redis?: {
 		host: string;
 		port: number;
 		pass: string;

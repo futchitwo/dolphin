@@ -59,7 +59,7 @@ export default function load() {
 	mixin.driveUrl = `${mixin.scheme}://${mixin.host}/files`;
 	mixin.userAgent = `Dolphin/${pkg.version} (${config.url})`;
 
-	if (!config.redis.prefix) config.redis.prefix = mixin.host;
+	if (config.redis && !config.redis.prefix) config.redis.prefix = mixin.host;
 
 	return Object.assign(config, mixin);
 }

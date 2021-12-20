@@ -211,7 +211,7 @@ router.get('/info', async ctx => {
 		os: os.platform(),
 		node: process.version,
 		psql: await getConnection().query('SHOW server_version').then(x => x[0].server_version),
-		redis: redis.server_info.redis_version,
+		redis: config.redis ? redis.server_info.redis_version : 'No',
 		cpu: {
 			model: os.cpus()[0].model,
 			cores: os.cpus().length

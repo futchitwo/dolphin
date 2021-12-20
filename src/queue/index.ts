@@ -15,7 +15,7 @@ import { getJobInfo } from './get-job-info';
 import { IActivity } from '../remote/activitypub/type';
 
 function initializeQueue(name: string, limitPerSec = -1) {
-	return new Queue(name, {
+	return new Queue(name, config.redis != null ? {
 		redis: {
 			port: config.redis.port,
 			host: config.redis.host,
@@ -27,7 +27,7 @@ function initializeQueue(name: string, limitPerSec = -1) {
 			max: limitPerSec * 1,
 			duration: 1000
 		} : undefined
-	});
+	}: null);
 }
 
 export type InboxJobData = {
