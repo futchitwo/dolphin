@@ -28,6 +28,7 @@ export default function load() {
 		console.error('Read Config Error: ' + e);
 	}
 
+	config.db = config.db || {};
 	config.db.host = process.env.DB_HOST || config.db?.host;
 	config.db.port = Number(process.env.DB_PORT) || config.db?.port;
 	config.db.db   = process.env.DB_DB   || config.db?.db;
@@ -37,6 +38,7 @@ export default function load() {
 	config.db.extra = config.db?.extra || {};
 	config.db.extra.ssl = process.env.DB_SSL || config.db?.extra?.ssl;
 
+	config.drive = config.drive || {};
 	config.drive.storage = config.drive?.storage || 'fs'; 
 	config.id = config.id || 'ulid'; 
 
