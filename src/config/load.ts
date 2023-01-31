@@ -28,15 +28,15 @@ export default function load() {
 		console.error('Read Config Error: ' + e);
 	}
 
-	config.db.host = process.env.DB_HOST || config.db.host;
-	config.db.port = process.env.DB_PORT || config.db.port;
-	config.db.db   = process.env.DB_DB   || config.db.db;
-	config.db.user = process.env.DB_USER || config.db.user;
-	config.db.pass = process.env.DB_PASS || config.db.pass;
-	config.db.disableCache = process.env.DB_DISABLE_CACHE || config.db.disableCache;
-	config.db.exrta.ssl = process.env.DB_SSL || config.db.extra.ssl;
+	config.db.host = process.env.DB_HOST || config.db?.host;
+	config.db.port = process.env.DB_PORT || config.db?.port;
+	config.db.db   = process.env.DB_DB   || config.db?.db;
+	config.db.user = process.env.DB_USER || config.db?.user;
+	config.db.pass = process.env.DB_PASS || config.db?.pass;
+	config.db.disableCache = process.env.DB_DISABLE_CACHE || config.db?.disableCache;
+	config.db.exrta.ssl = process.env.DB_SSL || config.db?.extra?.ssl;
 
-	config.drive.storage = config.drive.storage || 'fs'; 
+	config.drive.storage = config.drive?.storage || 'fs'; 
 	config.id = config.id || 'ulid'; 
 
 	const mixin = {} as Mixin;
