@@ -34,6 +34,7 @@ export default function load() {
 	config.db.user = process.env.DB_USER || config.db?.user;
 	config.db.pass = process.env.DB_PASS || config.db?.pass;
 	config.db.disableCache = process.env.DB_DISABLE_CACHE || config.db?.disableCache;
+	config.db.extra = config.db?.extra || {};
 	config.db.exrta.ssl = process.env.DB_SSL || config.db?.extra?.ssl;
 
 	config.drive.storage = config.drive?.storage || 'fs'; 
