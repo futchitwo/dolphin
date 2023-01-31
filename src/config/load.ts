@@ -20,7 +20,7 @@ const path = process.env.NODE_ENV == 'test'
 	: `${dir}/default.yml`;
 
 export default function load() {
-	let config:Source;
+	let config = {} as Source;
 
 	try {
 		config = yaml.load(fs.readFileSync(path, 'utf-8')) as Source;
@@ -29,13 +29,13 @@ export default function load() {
 	}
 
 	config.db.host = process.env.DB_HOST || config.db?.host;
-	config.db.port = process.env.DB_PORT || config.db?.port;
+	config.db.port = Number(process.env.DB_PORT) || config.db?.port;
 	config.db.db   = process.env.DB_DB   || config.db?.db;
 	config.db.user = process.env.DB_USER || config.db?.user;
 	config.db.pass = process.env.DB_PASS || config.db?.pass;
-	config.db.disableCache = process.env.DB_DISABLE_CACHE || config.db?.disableCache;
+	config.db.disableCache = toBoolean(process.env.DB_DISABLE_CACHE) || config.db?.disableCache;
 	config.db.extra = config.db?.extra || {};
-	config.db.exrta.ssl = process.env.DB_SSL || config.db?.extra?.ssl;
+	config.db.extra.ssl = process.env.DB_SSL || config.db?.extra?.ssl;
 
 	config.drive.storage = config.drive?.storage || 'fs'; 
 	config.id = config.id || 'ulid'; 
@@ -71,4 +71,8 @@ function tryCreateUrl(url: string) {
 	} catch (e) {
 		throw `url="${url}" is not a valid URL.`;
 	}
+}
+
+function toBoolean(str = "") {
+	return str.toLowerCase() === 'true';
 }
