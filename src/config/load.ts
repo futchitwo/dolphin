@@ -38,6 +38,8 @@ export default function load() {
 	config.db.extra = config.db?.extra || {};
 	config.db.extra.ssl = process.env.DB_SSL || config.db?.extra?.ssl;
 
+	if(!config.redis) config.db.disableCache = true;
+
 	config.drive = config.drive || {};
 	config.drive.storage = config.drive?.storage || 'fs'; 
 	config.id = config.id || 'ulid'; 
