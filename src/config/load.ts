@@ -46,7 +46,7 @@ export default function load() {
 
 	const mixin = {} as Mixin;
 
-	const url = tryCreateUrl(config.url || process.env.DP_URL);
+	const url = tryCreateUrl(config.url || process.env.EXTERNAL_URL);
 
 	config.url = url.origin;
 
