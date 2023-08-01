@@ -46,13 +46,13 @@ export default function load() {
 
 	const mixin = {} as Mixin;
 
-	const url = tryCreateUrl(config.url);
+	const url = tryCreateUrl(config.url || process.env.DP_URL);
 
 	config.url = url.origin;
 
 	config.port = config.port || parseInt(process.env.PORT || '', 10);
 
-	config.name = config.name || 'Dolphin';
+	config.name = config.name || process.env.DP_NAME || 'Dolphin';
 
 	mixin.host = url.host;
 	mixin.hostname = url.hostname;
