@@ -12,7 +12,7 @@
 	"main": "./index.js",
 	"private": true,
 	"scripts": {
-		"start": "npm migrateandswim",
+		"start": "npm run migrateandswim",
 		"swim": "node ./index.js",
 		"init": "npm run migrate",
 		"migrate": "ts-node ./node_modules/typeorm/cli.js migration:run",
