@@ -12,10 +12,11 @@
 	"main": "./index.js",
 	"private": true,
 	"scripts": {
-		"start": "node ./index.js",
+		"start": "npm migrateandswim",
+		"swim": "node ./index.js",
 		"init": "npm run migrate",
 		"migrate": "ts-node ./node_modules/typeorm/cli.js migration:run",
-		"migrateandstart": "npm run migrate && npm run start",
+		"migrateandswim": "npm run migrate && npm run swim",
 		"build": "webpack && gulp build",
 		"webpack": "webpack",
 		"watch": "webpack --watch",
