@@ -105,6 +105,7 @@ export function initDb(justBorrow = false, sync = false, log = false) {
 
 	return createConnection({
 		type: 'postgres',
+		url: config.db.url,
 		host: config.db.host,
 		port: config.db.port,
 		username: config.db.user,

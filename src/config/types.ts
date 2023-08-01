@@ -12,13 +12,16 @@ export type Source = {
 	https?: { [x: string]: string };
 	disableHsts?: boolean;
 	db: {
+		url: string;
+		disableCache?: boolean;
+	} | {
 		host: string;
 		port: number;
 		db: string;
 		user: string;
 		pass: string;
 		disableCache?: boolean;
-		extra?: { [x: string]: string };
+		extra?: { [x: string]: unknown };
 	};
 	redis?: {
 		host: string;

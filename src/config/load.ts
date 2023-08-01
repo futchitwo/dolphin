@@ -29,6 +29,7 @@ export default function load() {
 	}
 
 	config.db = config.db || {};
+	config.db.url = process.env.DATABASE_URL || config.db?.url;
 	config.db.host = process.env.DB_HOST || config.db?.host;
 	config.db.port = Number(process.env.DB_PORT) || config.db?.port;
 	config.db.db   = process.env.DB_DB   || config.db?.db;
